@@ -1,29 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  const input = document.querySelector("input[type='email']");
-  const errorMessage = document.createElement("p");
+const email = document.querySelector(".email");
+const form = document.querySelector(".form");
+const emailMessage = document.querySelector(".empty-email-message");
+const errorEmail = document.querySelector(".invalid-email-message");
 
-  // Add class for styling
-  errorMessage.classList.add("error-message");
-  errorMessage.style.display = "none";
-  form.appendChild(errorMessage);
+form.addEventListener("submit", (e) => {
+  if (!email.value) {
+    e.preventDefault();
+    emailMessage.textContent = "You must type in an email";
+  } else {
+    emailMessage.textContent = "";
+    // return true;
+  }
+});
 
-  form.addEventListener("submit", function (event) {
-    errorMessage.style.display = "none";
-    input.classList.remove("input-error");
-
-    const emailValue = input.value.trim();
-
-    if (emailValue === "") {
-      errorMessage.textContent = "Error: The email field cannot be empty.";
-      errorMessage.style.display = "block";
-      input.classList.add("input-error"); //
-      event.preventDefault();
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-      errorMessage.textContent = "Error: Please enter a valid email address.";
-      errorMessage.style.display = "block";
-      input.classList.add("input-error");
-      event.preventDefault();
+email.addEventListener("input", () => {
+  if (email.value) {
+    const regexMatch = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+      email.value
+    );
+    if (regexMatch) {
+      email.classList.remove("error");
+      errorEmail.textContent = "";
+    } else {
+      email.classList.add("error"); //
+      errorEmail.textContent = "Email is invalid";
+      emailMessage.textContent = "";
     }
-  });
+  } else {
+    email.classList.remove("error");
+    emailMessage.textContent = "You must type in an email";
+    errorEmail.textContent = "";
+  }
 });
