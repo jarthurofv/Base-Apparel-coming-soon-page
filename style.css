@@ -5,212 +5,220 @@
 }
 
 body {
-  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Josefin Sans;
-  background-color: hsl(0, 100%, 98%);
-  color: hsl(0, 6%, 24%);
+  font-size: 16px;
+}
+
+.right {
+  display: hidden;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  max-width: 1240px;
-  width: 75%;
+  max-width: 450px;
+  width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  gap: 1rem;
+  background-image: url(images/bg-pattern-desktop.svg);
+  padding: 2rem 0;
 }
 
-.left {
+header {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: flex-start;
-  width: 65%;
+  justify-content: center;
+  width: 100%;
 }
 
-.left header {
-  margin-bottom: 8rem;
+header .logo {
+  margin-bottom: 4rem;
 }
 
-.left header .hero__img {
+header .img__hero--mobile {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 3rem;
+}
+
+.right .img__hero--desktop {
   display: none;
 }
 
-.left main {
-  width: 75%;
+main {
+  text-align: center;
 }
 
-.left main h1 {
-  font-size: 3.5rem;
+main h1 {
+  font-size: 3rem;
   font-weight: 500;
   text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 6px;
-  color: rgb(33, 31, 31);
-  margin-bottom: 1.8rem;
+  color: hsl(0, 6%, 24%);
+  letter-spacing: 10px;
+  width: 80%;
+  margin: 1rem auto;
 }
 
-.left main h1 span {
+main h1 span {
   color: hsl(0, 36%, 70%);
   font-weight: 300;
 }
 
-.left main p {
+main p {
+  line-height: 1.7;
   color: hsl(0, 36%, 70%);
-  line-height: 1.5;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+  margin: 0 1.4rem;
 }
 
-.hero__img {
+footer {
+  margin: 2rem auto;
+}
+
+footer input[type="email"] {
   width: 100%;
-  align-self: flex-start;
-}
-
-form input {
-  padding: 1rem;
-  max-width: 5rem;
-  width: 80%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 36%, 70%);
+  font-size: 1.2rem;
   border-radius: 10rem;
-  border: 0.9px solid hsl(0, 36%, 70%);
   font-family: inherit;
   color: hsl(0, 36%, 70%);
 }
 
-form input:se {
-  border: hsl(0, 93%, 68%) 1px solid;
-}
+button {
+  padding: 1.7rem 2.9rem;
+  border: none;
+  border-radius: 20rem;
 
-.input__email {
-  position: relative;
-  min-width: 21rem;
-  width: 70%;
-}
-
-.subit__btn {
-  position: absolute;
-  left: 32rem;
-  padding: 0rem;
-  padding-top: 0.3rem;
-  font-family: inherit;
-  font-size: 2.5rem;
-  max-width: 4.5rem;
+  background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
   color: white;
-  font-weight: 600;
-  background-image: url(images/bg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.error-message {
-  color: hsl(0, 93%, 68%);
-  font-weight: 400;
+  font-size: 1.2rem;
   font-family: inherit;
-  font-size: 0.8rem;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+  cursor: pointer;
+  position: relative;
+  bottom: 3.4rem;
+  left: 18rem;
 }
 
-.input-error {
-  border: 2px solid hsl(0, 93%, 68%);
+button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(images/icon-arrow.svg);
+  background-size: contain 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20rem;
+  z-index: 1;
+}
+
+::placeholder {
+  color: hsl(0, 36%, 70%);
+  font-size: 1rem;
+}
+
+footer input[type="email"]:focus {
+  border: 2px solid hsl(0, 36%, 70%);
+  outline: none;
+}
+
+footer input[type="email"].error {
   background-image: url("images/icon-error.svg");
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
+  background-position: right 5rem center;
+  background-size: 1.5rem;
+  border: 1px solid hsl(0, 36%, 70%);
 }
 
-@media only screen and (max-width: 708px) {
-  .container {
+.empty-email-message,
+.invalid-email-message {
+  display: block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: hsl(0, 93%, 68%);
+  font-size: 0.8rem;
+  margin: 0;
+  position: relative;
+  bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 700px;
+    max-width: 1400px;
     width: 100%;
+    min-height: 100vh;
+    background-image: url(images/bg-pattern-desktop.svg);
     margin: 0 auto;
-    padding: 0.5rem;
-    order: 1;
+  }
+  .container {
+    padding: 0rem 0;
   }
 
-  .container .left {
-    width: 100%;
-  }
-
-  .left header {
-    order: 2;
-    width: 100%;
-    margin: 1rem auto;
-  }
-
-  .left .header {
-    margin: 2rem 1.5rem;
-  }
-
-  .left header .hero__img {
-    display: block;
-    align-self: flex-start;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: top;
-    margin: 1rem auto;
-  }
-
-  .right .hero__img {
+  header .img__hero--mobile {
     display: none;
   }
 
-  .left main {
-    order: 4;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 3rem;
+  .right .img__hero--desktop {
+    display: block;
+    width: 80%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  .left main h1 {
-    width: 100%;
-    font-size: 2.8rem;
+  header {
+    margin: 0;
+  }
+
+  header img {
+    margin-top: 1.5rem;
+  }
+
+  main {
+    text-align: left;
     padding: 0;
-    text-align: center;
-    margin: 0 auto;
-    line-height: 1.2;
+    margin: 0;
   }
 
-  .left main p {
-    margin-top: 1rem;
-    text-align: center;
-  }
-
-  .left footer {
-    order: 5;
+  main h1 {
     width: 100%;
-    padding: 0 3rem;
-  }
-
-  .left footer .input__email {
-    position: relative;
-    min-width: 19rem;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .left .subit__btn {
-    position: absolute;
-    left: 23rem;
-    padding: 0rem;
-    padding-top: 0.3rem;
-    font-family: inherit;
-    font-size: 2.5rem;
-    max-width: 4.5rem;
-    color: white;
+    margin-top: 3rem;
+    line-height: 1.1;
+    font-size: 3.3rem;
     font-weight: 600;
-    background-image: url(images/bg.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  }
+
+  main p {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  footer {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+    align-self: left;
+  }
+
+  footer form {
+    align-self: left;
+    width: 100%;
+  }
+
+  button {
+    left: 24rem;
   }
 }
