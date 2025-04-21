@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -18,44 +17,43 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-
     <title>Frontend Mentor | Base Apparel coming soon page</title>
   </head>
   <body>
     <div class="container">
-      <div class="left">
-        <header>
-          <img src="images/logo.svg" alt="Logo" class="header" />
-          <img
-            src="images/hero-desktop.jpg"
-            alt="Hero Image"
-            class="hero__img"
+      <header>
+        <img src="images/logo.svg" alt="logo" class="logo" />
+        <img
+          src="images/hero-mobile.jpg"
+          alt="hero image"
+          class="img__hero--mobile"
+        />
+      </header>
+      <main>
+        <h1><span>We're</span> coming soon</h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+      </main>
+      <footer>
+        <form class="form" novalidate id="form" action="submit">
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="email error"
+            required
+            id="email"
           />
-        </header>
-        <main>
-          <h1><span>We're</span> coming soon</h1>
-          <p>
-            Hello fellow shoppers! We're currently building our new fashion
-            store. Add your email below to stay up-to-date with announcements
-            and our launch deals.
-          </p>
-        </main>
-        <footer>
-          <form action="submit">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email Address"
-              class="input__email"
-            />
-            <input type="submit" class="subit__btn" value=" > " />
-          </form>
-        </footer>
-      </div>
-      <div class="right">
-        <img src="images/hero-desktop.jpg" alt="Hero Image" class="hero__img" />
-      </div>
+          <button type="submit" class="submit-button"></button>
+          <p class="empty-email-message"></p>
+          <p class="invalid-email-message"></p>
+        </form>
+      </footer>
+    </div>
+    <div class="right">
+      <img src="images/hero-desktop.jpg" class="img__hero--desktop" alt="" />
     </div>
     <script src="index.js"></script>
   </body>
